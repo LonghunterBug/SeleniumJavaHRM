@@ -32,7 +32,16 @@ public class UserManagementTest extends BaseTest {
         loginPage.loginHRM("Admin","admin123");
         basePage.clickMenuAdmin();
         userMangementPage.editEmployeeName(DataTest.username_addnew);
-//        userMangementPage.verifySuccessMessageIsDisplayed();
-//        userMangementPage.verifyEmployeeNameIsUpdated();
+        userMangementPage.verifySuccessMessageIsDisplayed();
+        userMangementPage.verifyEmployeeNameIsUpdated();
+    }
+    @Test
+    public void testDeleteUser(){
+        loginPage.loginHRM("Admin","admin123");
+        basePage.clickMenuAdmin();
+        userMangementPage.deleteUser(DataTest.username_addnew);
+        userMangementPage.verifySuccessMessageIsDisplayed();
+        userMangementPage.verifyUserNotDisplayedInTable();
+
     }
 }

@@ -22,7 +22,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void testLoginSuccess() {
         loginPage.loginHRM("Admin", "admin123");
-        //basePage.verifyMainMenuDisplayed();
+        basePage.verifyMainMenuDisplayed();
     }
 
     @Test

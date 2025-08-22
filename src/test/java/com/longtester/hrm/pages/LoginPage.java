@@ -21,10 +21,7 @@ public class LoginPage {
         WebUI.openURL("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WebUI.setText(inputUserName,username);
         WebUI.setText(inputPassword,password);
-        WebUI.sleep(3);
-        WebUI.clearText(inputUserName);
-        WebUI.clearText(inputPassword);
-        //WebUI.clickElement(buttonLogin);
+        WebUI.clickElement(buttonLogin);
     }
     public void verifyErrorInvalidCredentialDisplayed(){
         Assert.assertTrue(WebUI.isElementDisplayed(alertErrorInvalidCredential),"Error invalid credential not display");

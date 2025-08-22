@@ -1,6 +1,7 @@
 package com.longtester.keywords;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -46,10 +47,13 @@ public class WebUI {
         getWebElement(by).click();
         logConsole("Click on element " + by);
     }
-    public static void clearText(By by) {
+    public static void clearTextWithKey(By by) {
         waitForElementVisible(by);
         sleep(STEP_TIME);
-        getWebElement(by).clear();
+        WebElement element = getWebElement(by);
+        element.click();
+        element.sendKeys(Keys.CONTROL + "a");
+        element.sendKeys(Keys.DELETE);
         logConsole("Clear text on element " + by);
     }
 
