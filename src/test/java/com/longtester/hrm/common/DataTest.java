@@ -11,6 +11,8 @@ public class DataTest {
     public static String username_addnew = "longqa1";
     public static String password_addnew = "China@2000";
     public static String confirmpassword_addnew = "China@2000";
+    // Data for Job Title
+    public static String job_title = "Software Engineer 1";
 
     // Data for Employee Management
     public static String employee_firstname = "FPT";
