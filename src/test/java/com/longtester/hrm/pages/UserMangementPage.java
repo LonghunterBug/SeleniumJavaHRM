@@ -65,6 +65,7 @@ public class UserMangementPage {
 
     public void verifySuccessMessageIsDisplayed() {
         Assert.assertTrue(WebUI.isElementDisplayed(toastMessageSuccess));
+        WebUI.highlightElement(toastMessageSuccess);
     }
 
     public void verifyUserIsDisplayedInTable() {
@@ -72,6 +73,7 @@ public class UserMangementPage {
         WebUI.setText(inputSearchUserName, DataTest.username_addnew);
         WebUI.clickElement(buttonSearch);
         WebUI.sleep(2);
+        WebUI.highlightElement(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + DataTest.username_addnew + "']"));
         Assert.assertTrue(WebUI.isElementDisplayed(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + DataTest.username_addnew + "']")));
     }
     public void verifyUserNotDisplayedInTable() {
@@ -90,6 +92,7 @@ public class UserMangementPage {
         WebUI.clickElement(buttonSearch);
         WebUI.sleep(2);
         String actual_employeename = WebUI.getElementText(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[4]"));
+        WebUI.highlightElement(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[4]"));
         Assert.assertEquals(actual_employeename, DataTest.employee_firstname + " " + DataTest.employee_lastname, "Employee name is not macthed");
     }
 

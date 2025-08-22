@@ -1,9 +1,6 @@
 package com.longtester.keywords;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -62,6 +59,13 @@ public class WebUI {
         sleep(STEP_TIME);
         getWebElement(by).sendKeys(value);
         logConsole("Set text " + value + " on element " + by);
+    }
+    public static void highlightElement(By by) {
+        // Highlight the element using JavaScript
+        String script = "arguments[0].style.border='3px solid red';";
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript(script, driver.findElement(by));
     }
     public static String getElementText(By by) {
         waitForElementVisible(by);

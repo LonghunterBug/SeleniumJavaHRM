@@ -28,4 +28,14 @@ public class JobTitleTest extends BaseTest {
         jobTitlePage.verifySuccessMessageIsDisplayed();
         jobTitlePage.verifyJobTitleIsDisplayedInTable();
     }
+    @Test
+    public void testEditJobTitle() {
+        loginPage.loginHRM("Admin", "admin123");
+        basePage.clickMenuAdmin();
+        jobTitlePage.clickMenuJob();
+        jobTitlePage.editJobTitle(DataTest.job_title);
+        jobTitlePage.verifySuccessMessageIsDisplayed();
+        jobTitlePage.verifyJobTitleIsUpdated();
+
+    }
 }
