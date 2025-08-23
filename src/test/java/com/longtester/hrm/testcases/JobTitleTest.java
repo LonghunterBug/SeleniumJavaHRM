@@ -6,6 +6,8 @@ import com.longtester.hrm.pages.BasePage;
 import com.longtester.hrm.pages.JobTitlePage;
 import com.longtester.hrm.pages.LoginPage;
 import com.longtester.hrm.pages.UserMangementPage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -23,19 +25,26 @@ public class JobTitleTest extends BaseTest {
     public void testAddJobTitle() {
         loginPage.loginHRM("Admin", "admin123");
         basePage.clickMenuAdmin();
-        jobTitlePage.clickMenuJob();
         jobTitlePage.addJobTitle(DataTest.job_title);
         jobTitlePage.verifySuccessMessageIsDisplayed();
-        jobTitlePage.verifyJobTitleIsDisplayedInTable();
+        jobTitlePage.verifyJobTitleIsDisplayedInTable(DataTest.job_title);
     }
     @Test
     public void testEditJobTitle() {
         loginPage.loginHRM("Admin", "admin123");
         basePage.clickMenuAdmin();
-        jobTitlePage.clickMenuJob();
         jobTitlePage.editJobTitle(DataTest.job_title);
         jobTitlePage.verifySuccessMessageIsDisplayed();
-        jobTitlePage.verifyJobTitleIsUpdated();
+        jobTitlePage.verifyJobTitleIsDisplayedInTable(DataTest.job_title_edit);
+
+    }
+    @Test
+    public void testDeleteJobTitle(){
+        loginPage.loginHRM("Admin","admin123");
+        basePage.clickMenuAdmin();
+        jobTitlePage.deleteJobTitle(DataTest.job_title);
+        jobTitlePage.verifySuccessMessageIsDisplayed();
+        jobTitlePage.verifyJobTitleNotDisplayedInTable(DataTest.job_title);
 
     }
 }

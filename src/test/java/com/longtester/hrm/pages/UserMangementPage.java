@@ -68,27 +68,27 @@ public class UserMangementPage {
         WebUI.highlightElement(toastMessageSuccess);
     }
 
-    public void verifyUserIsDisplayedInTable() {
+    public void verifyUserIsDisplayedInTable(String username) {
         WebUI.sleep(5);
-        WebUI.setText(inputSearchUserName, DataTest.username_addnew);
+        WebUI.setText(inputSearchUserName, username);
         WebUI.clickElement(buttonSearch);
         WebUI.sleep(2);
-        WebUI.highlightElement(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + DataTest.username_addnew + "']"));
-        Assert.assertTrue(WebUI.isElementDisplayed(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + DataTest.username_addnew + "']")));
+        WebUI.highlightElement(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + username + "']"));
+        Assert.assertTrue(WebUI.isElementDisplayed(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + username + "']")));
     }
-    public void verifyUserNotDisplayedInTable() {
+    public void verifyUserNotDisplayedInTable(String username) {
         WebUI.sleep(5);
         WebUI.clearTextWithKey(inputSearchUserName);
-        WebUI.setText(inputSearchUserName, DataTest.username_addnew);
+        WebUI.setText(inputSearchUserName, username);
         WebUI.clickElement(buttonSearch);
         WebUI.sleep(2);
-        List<WebElement> username = WebUI.getWebElements(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + DataTest.username_addnew + "']"));
-        Assert.assertTrue(username.isEmpty(),username +" is still displayed in table");
+        List<WebElement> listusername = WebUI.getWebElements(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + username + "']"));
+        Assert.assertTrue(listusername.isEmpty(),username +" is still displayed in table");
     }
 
-    public void verifyEmployeeNameIsUpdated() {
+    public void verifyEmployeeNameIsUpdated(String username) {
         WebUI.sleep(5);
-        WebUI.setText(inputSearchUserName, DataTest.username_addnew);
+        WebUI.setText(inputSearchUserName, username);
         WebUI.clickElement(buttonSearch);
         WebUI.sleep(2);
         String actual_employeename = WebUI.getElementText(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[4]"));

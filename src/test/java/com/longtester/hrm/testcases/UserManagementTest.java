@@ -25,7 +25,7 @@ public class UserManagementTest extends BaseTest {
         basePage.clickMenuAdmin();
         userMangementPage.addNewUser(DataTest.role,DataTest.status,DataTest.employee_name,DataTest.username_addnew,DataTest.password_addnew,DataTest.confirmpassword_addnew);
         userMangementPage.verifySuccessMessageIsDisplayed();
-        userMangementPage.verifyUserIsDisplayedInTable();
+        userMangementPage.verifyUserIsDisplayedInTable(DataTest.username_addnew);
     }
     @Test
     public void testEditUser(){
@@ -33,7 +33,7 @@ public class UserManagementTest extends BaseTest {
         basePage.clickMenuAdmin();
         userMangementPage.editEmployeeName(DataTest.username_addnew);
         userMangementPage.verifySuccessMessageIsDisplayed();
-        userMangementPage.verifyEmployeeNameIsUpdated();
+        userMangementPage.verifyEmployeeNameIsUpdated(DataTest.username_addnew);
     }
     @Test
     public void testDeleteUser(){
@@ -41,7 +41,7 @@ public class UserManagementTest extends BaseTest {
         basePage.clickMenuAdmin();
         userMangementPage.deleteUser(DataTest.username_addnew);
         userMangementPage.verifySuccessMessageIsDisplayed();
-        userMangementPage.verifyUserNotDisplayedInTable();
+        userMangementPage.verifyUserNotDisplayedInTable(DataTest.username_addnew);
 
     }
 }

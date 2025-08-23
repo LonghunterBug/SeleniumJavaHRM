@@ -14,6 +14,9 @@ public class DataTest {
     // Data for Job Title
     public static String job_title = "Software Engineer 1";
     public static String job_title_edit = "Software Engineer 2";
+    // Data for Job Category
+    public static String job_category = "IT";
+    public static String job_category_edit = "IT - Updated";
 
     // Data for Employee Management
     public static String employee_firstname = "FPT";
