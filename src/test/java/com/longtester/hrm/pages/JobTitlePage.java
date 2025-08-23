@@ -31,20 +31,20 @@ public class JobTitlePage {
         new WebUI(driver);
     }
 
-    public void clickMenuJob() {
+    public void clickMenuJobTitle() {
         WebUI.clickElement(topbarJob);
         WebUI.clickElement(menuitemJobTitles);
     }
 
     public void addJobTitle(String jobTitle) {
-        clickMenuJob();
+        clickMenuJobTitle();
         WebUI.clickElement(buttonAdd);
         WebUI.setText(inputJobTitle, jobTitle);
         WebUI.clickElement(buttonSave);
     }
 
     public void editJobTitle(String title) {
-        clickMenuJob();
+        clickMenuJobTitle();
         int index = 0;
         WebUI.sleep(3);
         boolean check = false;
@@ -72,7 +72,7 @@ public class JobTitlePage {
     }
 
     public void deleteJobTitle(String title) {
-        clickMenuJob();
+        clickMenuJobTitle();
         int index = 0;
         WebUI.sleep(3);
         boolean check = false;

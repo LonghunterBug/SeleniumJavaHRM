@@ -27,18 +27,18 @@ public class JobCategoryPage {
         this.driver = driver;
         new WebUI(driver);
     }
-    public void clickMenuJob() {
+    public void clickMenuJobCategory() {
         WebUI.clickElement(topbarJob);
         WebUI.clickElement(menuitemJobCategories);
     }
     public void addJobCategory(String jobCategory) {
-        clickMenuJob();
+        clickMenuJobCategory();
         WebUI.clickElement(buttonAdd);
         WebUI.setText(inputJobCategory, jobCategory);
         WebUI.clickElement(buttonSave);
     }
     public void editJobCategory(String category) {
-        clickMenuJob();
+        clickMenuJobCategory();
         int index = 0;
         WebUI.sleep(3);
         boolean check = false;
@@ -65,7 +65,7 @@ public class JobCategoryPage {
         WebUI.clickElement(buttonSave);
     }
     public void deleteJobCategory(String category) {
-        clickMenuJob();
+        clickMenuJobCategory();
         int index = 0;
         WebUI.sleep(3);
         boolean check = false;

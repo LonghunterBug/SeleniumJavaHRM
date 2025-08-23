@@ -60,6 +60,11 @@ public class WebUI {
         getWebElement(by).sendKeys(value);
         logConsole("Set text " + value + " on element " + by);
     }
+    public static void scrollToElementAtTop(By by) {
+        sleep(STEP_TIME);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", getWebElement(by));
+    }
     public static void highlightElement(By by) {
         // Highlight the element using JavaScript
         String script = "arguments[0].style.border='3px solid red';";
