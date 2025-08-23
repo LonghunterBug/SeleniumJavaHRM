@@ -19,7 +19,7 @@ public class JobCategoryTest extends BaseTest {
         basePage = new BasePage(driver);
         jobCategoryPage = new JobCategoryPage(driver);
     }
-    @Test
+    @Test(priority = 1)
     public void testAddJobCategory() {
         loginPage.loginHRM("Admin", "admin123");
         basePage.clickMenuAdmin();
@@ -27,7 +27,7 @@ public class JobCategoryTest extends BaseTest {
         jobCategoryPage.verifySuccessMessageIsDisplayed();
         jobCategoryPage.verifyJobCategoryIsDisplayedInTable(DataTest.job_category);
     }
-    @Test
+    @Test(priority = 2)
     public void testEditJobCategory() {
         loginPage.loginHRM("Admin", "admin123");
         basePage.clickMenuAdmin();
@@ -35,7 +35,7 @@ public class JobCategoryTest extends BaseTest {
         jobCategoryPage.verifySuccessMessageIsDisplayed();
         jobCategoryPage.verifyJobCategoryIsDisplayedInTable(DataTest.job_category_edit);
     }
-    @Test
+    @Test(priority = 3)
     public void testDeleteJobCategory(){
         loginPage.loginHRM("Admin", "admin123");
         basePage.clickMenuAdmin();

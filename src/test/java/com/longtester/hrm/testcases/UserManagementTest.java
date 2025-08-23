@@ -19,7 +19,7 @@ public class UserManagementTest extends BaseTest {
         basePage = new BasePage(driver);
         userMangementPage = new UserMangementPage(driver);
     }
-    @Test
+    @Test(priority = 1)
     public void testAddNewUser(){
         loginPage.loginHRM("Admin","admin123");
         basePage.clickMenuAdmin();
@@ -27,7 +27,17 @@ public class UserManagementTest extends BaseTest {
         userMangementPage.verifySuccessMessageIsDisplayed();
         userMangementPage.verifyUserIsDisplayedInTable(DataTest.username_addnew);
     }
-    @Test
+    @Test(priority = 2)
+    public void testLoginSuccessWithRegisteredAccount(){
+        loginPage.loginHRM(DataTest.username_addnew,DataTest.password_addnew);
+        basePage.verifyMainMenuDisplayed();
+    }
+    @Test(priority = 3)
+    public void testLoginFailWithInvalidCredential(){
+        loginPage.loginHRM(DataTest.username_addnew,"");
+        loginPage.verifyErrorInvalidCredentialDisplayed();
+    }
+    @Test(priority = 4)
     public void testEditUser(){
         loginPage.loginHRM("Admin","admin123");
         basePage.clickMenuAdmin();
@@ -35,13 +45,12 @@ public class UserManagementTest extends BaseTest {
         userMangementPage.verifySuccessMessageIsDisplayed();
         userMangementPage.verifyEmployeeNameIsUpdated(DataTest.username_addnew);
     }
-    @Test
+    @Test(priority = 5)
     public void testDeleteUser(){
         loginPage.loginHRM("Admin","admin123");
         basePage.clickMenuAdmin();
         userMangementPage.deleteUser(DataTest.username_addnew);
         userMangementPage.verifySuccessMessageIsDisplayed();
         userMangementPage.verifyUserNotDisplayedInTable(DataTest.username_addnew);
-
     }
 }

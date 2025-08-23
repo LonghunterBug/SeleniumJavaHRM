@@ -18,6 +18,7 @@ public class UserMangementPage {
     private By buttonEdit = By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[6]//button[2]");
     private By buttonDelete = By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[6]//button[1]");
     private By buttonConfirmDelete = By.xpath("//button[normalize-space()='Yes, Delete']");
+    private By listUsername = By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]");
     // Add New User form
     private By selectUserRole = By.xpath("//label[text()='User Role']/parent::div/following-sibling::div//div[contains(@class,'select-text--active')]");
     private By selectStatus = By.xpath("//label[text()='Status']/parent::div/following-sibling::div//div[contains(@class,'select-text--active')]");
@@ -72,7 +73,7 @@ public class UserMangementPage {
         WebUI.sleep(5);
         WebUI.setText(inputSearchUserName, username);
         WebUI.clickElement(buttonSearch);
-        WebUI.sleep(2);
+        WebUI.waitForElementVisible(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + username + "']"));
         WebUI.highlightElement(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + username + "']"));
         Assert.assertTrue(WebUI.isElementDisplayed(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + username + "']")));
     }
@@ -82,7 +83,7 @@ public class UserMangementPage {
         WebUI.setText(inputSearchUserName, username);
         WebUI.clickElement(buttonSearch);
         WebUI.sleep(2);
-        List<WebElement> listusername = WebUI.getWebElements(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + username + "']"));
+        List<WebElement> listusername = WebUI.getWebElements(listUsername);
         Assert.assertTrue(listusername.isEmpty(),username +" is still displayed in table");
     }
 
@@ -90,9 +91,9 @@ public class UserMangementPage {
         WebUI.sleep(5);
         WebUI.setText(inputSearchUserName, username);
         WebUI.clickElement(buttonSearch);
-        WebUI.sleep(2);
-        String actual_employeename = WebUI.getElementText(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[4]"));
+        WebUI.waitForElementVisible(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + username + "']"));
         WebUI.highlightElement(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[4]"));
+        String actual_employeename = WebUI.getElementText(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[4]"));
         Assert.assertEquals(actual_employeename, DataTest.employee_firstname + " " + DataTest.employee_lastname, "Employee name is not macthed");
     }
 

@@ -21,7 +21,7 @@ public class JobTitleTest extends BaseTest {
         basePage = new BasePage(driver);
         jobTitlePage = new JobTitlePage(driver);
     }
-    @Test
+    @Test(priority = 1)
     public void testAddJobTitle() {
         loginPage.loginHRM("Admin", "admin123");
         basePage.clickMenuAdmin();
@@ -29,7 +29,7 @@ public class JobTitleTest extends BaseTest {
         jobTitlePage.verifySuccessMessageIsDisplayed();
         jobTitlePage.verifyJobTitleIsDisplayedInTable(DataTest.job_title);
     }
-    @Test
+    @Test(priority = 2)
     public void testEditJobTitle() {
         loginPage.loginHRM("Admin", "admin123");
         basePage.clickMenuAdmin();
@@ -38,13 +38,13 @@ public class JobTitleTest extends BaseTest {
         jobTitlePage.verifyJobTitleIsDisplayedInTable(DataTest.job_title_edit);
 
     }
-    @Test
+    @Test(priority = 3)
     public void testDeleteJobTitle(){
         loginPage.loginHRM("Admin","admin123");
         basePage.clickMenuAdmin();
-        jobTitlePage.deleteJobTitle(DataTest.job_title);
+        jobTitlePage.deleteJobTitle(DataTest.job_title_edit);
         jobTitlePage.verifySuccessMessageIsDisplayed();
-        jobTitlePage.verifyJobTitleNotDisplayedInTable(DataTest.job_title);
+        jobTitlePage.verifyJobTitleNotDisplayedInTable(DataTest.job_title_edit);
 
     }
 }

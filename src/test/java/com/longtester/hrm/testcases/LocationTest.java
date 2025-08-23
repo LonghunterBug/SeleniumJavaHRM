@@ -18,12 +18,28 @@ public class LocationTest extends BaseTest {
         basePage = new BasePage(driver);
         locationPage = new LocationPage(driver);
     }
-    @Test
+    @Test(priority = 1)
     public void testAddLocation(){
         loginPage.loginHRM("Admin","admin123");
         basePage.clickMenuAdmin();
         locationPage.addLocation(DataTest.location_name);
         locationPage.verifySuccessMessageIsDisplayed();
         locationPage.verifyLocationIsDisplayedInTable(DataTest.location_name);
+    }
+    @Test(priority = 2)
+    public void testEditLocation(){
+        loginPage.loginHRM("Admin","admin123");
+        basePage.clickMenuAdmin();
+        locationPage.editCountry(DataTest.location_name);
+        locationPage.verifySuccessMessageIsDisplayed();
+        locationPage.veriyCountryIsUpdatedInTable(DataTest.location_name);
+    }
+    @Test(priority = 3)
+    public void testDeleteLocation(){
+        loginPage.loginHRM("Admin","admin123");
+        basePage.clickMenuAdmin();
+        locationPage.deleteLocation(DataTest.location_name);
+        locationPage.verifySuccessMessageIsDisplayed();
+        locationPage.verifyLocationNotDisplayedInTable(DataTest.location_name);
     }
 }
