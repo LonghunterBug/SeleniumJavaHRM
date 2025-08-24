@@ -24,7 +24,7 @@ public class LoginPage {
         WebUI.clickElement(buttonLogin);
     }
     public void verifyErrorInvalidCredentialDisplayed(){
-        Assert.assertTrue(WebUI.isElementDisplayed(alertErrorInputRequire),"Error input required not display");
-        Assert.assertEquals(WebUI.getElementText(alertErrorInputRequire),"Required","Error input required not match with expected");
+        WebUI.verifyDisplay(alertErrorInputRequire,WebUI.isElementDisplayed(alertErrorInputRequire),"Error input required not display");
+        WebUI.verifyEqual(WebUI.getElementText(alertErrorInputRequire),"Required","Error input required not match with expected");
     }
 }

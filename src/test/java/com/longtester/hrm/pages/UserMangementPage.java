@@ -65,7 +65,7 @@ public class UserMangementPage {
     }
 
     public void verifySuccessMessageIsDisplayed() {
-        Assert.assertTrue(WebUI.isElementDisplayed(toastMessageSuccess));
+        WebUI.verifyDisplay(toastMessageSuccess,WebUI.isElementDisplayed(toastMessageSuccess),"Toast message not display");
         WebUI.highlightElement(toastMessageSuccess);
     }
 
@@ -75,7 +75,8 @@ public class UserMangementPage {
         WebUI.clickElement(buttonSearch);
         WebUI.waitForElementVisible(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + username + "']"));
         WebUI.highlightElement(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + username + "']"));
-        Assert.assertTrue(WebUI.isElementDisplayed(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + username + "']")));
+        By text = By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + username + "']");
+        WebUI.verifyDisplay(text,WebUI.isElementDisplayed(text),"Username not display");
     }
     public void verifyUserNotDisplayedInTable(String username) {
         WebUI.sleep(5);
@@ -84,7 +85,7 @@ public class UserMangementPage {
         WebUI.clickElement(buttonSearch);
         WebUI.sleep(2);
         List<WebElement> listusername = WebUI.getWebElements(listUsername);
-        Assert.assertTrue(listusername.isEmpty(),username +" is still displayed in table");
+        WebUI.verifyNotDisplay(listusername,username,username +" is still displayed in table");
     }
 
     public void verifyEmployeeNameIsUpdated(String username) {
@@ -94,7 +95,7 @@ public class UserMangementPage {
         WebUI.waitForElementVisible(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + username + "']"));
         WebUI.highlightElement(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[4]"));
         String actual_employeename = WebUI.getElementText(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[4]"));
-        Assert.assertEquals(actual_employeename, DataTest.employee_firstname + " " + DataTest.employee_lastname, "Employee name is not macthed");
+        WebUI.verifyEqual(actual_employeename, DataTest.employee_firstname + " " + DataTest.employee_lastname, "Employee name is not macthed");
     }
 
 

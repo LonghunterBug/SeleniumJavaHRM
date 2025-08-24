@@ -34,7 +34,7 @@ public class BasePage {
         WebUI.waitForAllElementsVisible(leftMainMenu);
         List<WebElement> listmenu = WebUI.getWebElements(leftMainMenu);
         for(WebElement e:listmenu){
-            Assert.assertTrue(e.isDisplayed());
+            WebUI.verifyDisplay(e,e.isDisplayed(),e.getText() + " not display");
         }
     }
 
