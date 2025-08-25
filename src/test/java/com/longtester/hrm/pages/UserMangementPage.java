@@ -71,9 +71,7 @@ public class UserMangementPage {
 
     public void verifyUserIsDisplayedInTable(String username) {
         WebUI.sleep(5);
-        WebUI.setText(inputSearchUserName, username);
-        WebUI.clickElement(buttonSearch);
-        WebUI.waitForElementVisible(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + username + "']"));
+        searchByUserName(username);
         WebUI.highlightElement(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + username + "']"));
         By text = By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + username + "']");
         WebUI.verifyDisplay(text,WebUI.isElementDisplayed(text),"Username not display");
@@ -90,9 +88,7 @@ public class UserMangementPage {
 
     public void verifyEmployeeNameIsUpdated(String username) {
         WebUI.sleep(5);
-        WebUI.setText(inputSearchUserName, username);
-        WebUI.clickElement(buttonSearch);
-        WebUI.waitForElementVisible(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + username + "']"));
+        searchByUserName(username);
         WebUI.highlightElement(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[4]"));
         String actual_employeename = WebUI.getElementText(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[4]"));
         WebUI.verifyEqual(actual_employeename, DataTest.employee_firstname + " " + DataTest.employee_lastname, "Employee name is not macthed");
