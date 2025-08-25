@@ -85,7 +85,7 @@ public class UserMangementPage {
         WebUI.clickElement(buttonSearch);
         WebUI.sleep(2);
         List<WebElement> listusername = WebUI.getWebElements(listUsername);
-        WebUI.verifyNotDisplay(listusername,username,username +" is still displayed in table");
+        WebUI.verifyNotDisplay1(listusername,username,username +" is still displayed in table");
     }
 
     public void verifyEmployeeNameIsUpdated(String username) {

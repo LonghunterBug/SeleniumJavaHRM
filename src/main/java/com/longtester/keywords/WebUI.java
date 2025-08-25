@@ -211,10 +211,18 @@ public class WebUI {
         logConsole("Verify " + text + " is displayed");
         Assert.assertTrue(check, message);
     }
-
-    public static void verifyNotDisplay(List<WebElement> element, Object expected, String message) {
+    // Trường hợp page có inputSearch, dùng hàm này
+    public static void verifyNotDisplay1(List<WebElement> element, Object expected, String message) {
         logConsole("Verify " + expected + " is not displayed");
         Assert.assertTrue(element.isEmpty(), message);
+    }
+
+    // Trường hợp page không có inputSearch, phải dùng hàm này
+    public static void verifyNotDisplay2(List<WebElement> element, Object expected, String message) {
+        logConsole("Verify " + expected + " is not displayed");
+        for(WebElement e:element){
+            Assert.assertTrue(!e.getText().equals(expected));
+        }
     }
 
 }

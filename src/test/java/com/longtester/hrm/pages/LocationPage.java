@@ -69,7 +69,7 @@ public class LocationPage {
     }
 
     public void verifySuccessMessageIsDisplayed() {
-        Assert.assertTrue(WebUI.isElementDisplayed(toastMessageSuccess));
+        WebUI.verifyDisplay(toastMessageSuccess,WebUI.isElementDisplayed(toastMessageSuccess),"Toast message not display");
         WebUI.highlightElement(toastMessageSuccess);
     }
     public void verifyLocationIsDisplayedInTable(String locationName) {
@@ -78,7 +78,8 @@ public class LocationPage {
         WebUI.clickElement(buttonSearch);
         WebUI.waitForElementVisible(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + locationName + "']"));
         WebUI.highlightElement(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + locationName + "']"));
-        Assert.assertTrue(WebUI.isElementDisplayed(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + locationName + "']")));
+        By text = By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + locationName + "']");
+        WebUI.verifyDisplay(text,WebUI.isElementDisplayed(text),"Location not display");
     }
     public void verifyLocationNotDisplayedInTable(String locationName){
         WebUI.sleep(5);
@@ -87,7 +88,7 @@ public class LocationPage {
         WebUI.clickElement(buttonSearch);
         WebUI.sleep(2);
         List<WebElement> listlocation = WebUI.getWebElements(listLocation);
-        Assert.assertTrue(listlocation.isEmpty(),locationName +" is still displayed in table");
+        WebUI.verifyNotDisplay1(listlocation,locationName,locationName +" is still displayed in table");
     }
     public void veriyCountryIsUpdatedInTable(String locationName){
         WebUI.sleep(5);
@@ -96,7 +97,7 @@ public class LocationPage {
         WebUI.waitForElementVisible(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[2]/div[text()='" + locationName + "']"));
         WebUI.highlightElement(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[4]"));
         String actual_country = WebUI.getElementText(By.xpath("//div[contains(@class,'table-body')]//div[contains(@class,'table-row')]/div[4]"));
-        Assert.assertEquals(actual_country,DataTest.country_edit,"Country is not match");
+        WebUI.verifyEqual(actual_country,DataTest.country_edit,"Country is not match");
     }
 
 

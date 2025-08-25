@@ -99,7 +99,7 @@ public class JobTitlePage {
     }
 
     public void verifySuccessMessageIsDisplayed() {
-        Assert.assertTrue(WebUI.isElementDisplayed(toastMessageSuccess));
+        WebUI.verifyDisplay(toastMessageSuccess,WebUI.isElementDisplayed(toastMessageSuccess),"Toast message not display");
         WebUI.highlightElement(toastMessageSuccess);
     }
 
@@ -113,7 +113,7 @@ public class JobTitlePage {
                 js.executeScript("arguments[0].scrollIntoView(true);", element);
                 js.executeScript("arguments[0].style.border='3px solid red';", element);
                 WebUI.sleep(2); // Nếu quay video thì cần sleep
-                Assert.assertTrue(element.isDisplayed(), title + " is not displayed in the table.");
+                WebUI.verifyDisplay(element,element.isDisplayed(), title + " is not displayed in the table.");
                 check = true;
                 break;
             }
@@ -126,12 +126,7 @@ public class JobTitlePage {
     public void verifyJobTitleNotDisplayedInTable(String title) {
         WebUI.sleep(4);
         List<WebElement> jobtitle = WebUI.getWebElements(listJobTitle);
-        for (WebElement e : jobtitle) {
-            if (e.getText().equals(title)) {
-                Assert.fail(title + " is still displayed in the table.");
-                break;
-            }
-        }
+        WebUI.verifyNotDisplay2(jobtitle,title,title + " is still displayed in the table");
     }
 
 

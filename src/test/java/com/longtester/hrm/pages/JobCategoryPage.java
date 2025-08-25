@@ -90,7 +90,7 @@ public class JobCategoryPage {
         WebUI.clickElement(buttonConfirmDelete);
     }
     public void verifySuccessMessageIsDisplayed() {
-        Assert.assertTrue(WebUI.isElementDisplayed(toastMessageSuccess));
+        WebUI.verifyDisplay(toastMessageSuccess,WebUI.isElementDisplayed(toastMessageSuccess),"Toast message not display");
         WebUI.highlightElement(toastMessageSuccess);
     }
     public void verifyJobCategoryIsDisplayedInTable(String category) {
@@ -103,7 +103,7 @@ public class JobCategoryPage {
                 js.executeScript("arguments[0].scrollIntoView(true);", element);
                 js.executeScript("arguments[0].style.border='3px solid red';", element);
                 WebUI.sleep(2); // Nếu quay video thì cần sleep
-                Assert.assertTrue(element.isDisplayed(), category + " is not displayed in the table.");
+                WebUI.verifyDisplay(element,element.isDisplayed(), category + " is not displayed in the table.");
                 check = true;
                 break;
             }
@@ -115,12 +115,7 @@ public class JobCategoryPage {
     public void verifyJobCategoryNotDisplayedInTable(String category) {
         WebUI.sleep(4);
         List<WebElement> jobcategory = WebUI.getWebElements(listJobCategory);
-        for (WebElement e : jobcategory) {
-            if (e.getText().equals(category)) {
-                Assert.fail(category + " is still displayed in the table.");
-                break;
-            }
-        }
+       WebUI.verifyNotDisplay2(jobcategory,category,category + " is still displayed in the table");
     }
 
 }
