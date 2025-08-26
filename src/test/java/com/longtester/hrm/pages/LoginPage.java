@@ -7,8 +7,8 @@ import org.testng.Assert;
 
 public class LoginPage {
     private WebDriver driver;
-    private By inputUserName = By.xpath("//input[@placeholder='Username']");
-    private By inputPassword = By.xpath("//input[@placeholder='Password']");
+    private By inputUserName = By.xpath("//input[@placeholder='username']");
+    private By inputPassword = By.xpath("//input[@placeholder='password']");
     private By buttonLogin = By.xpath("//button[normalize-space()='Login']");
     private By alertErrorInvalidCredential = By.xpath("//p[normalize-space()='Invalid credentials']");
     private By alertErrorInputRequire = By.xpath("//span[contains(@class,'input-field-error-message')]");
