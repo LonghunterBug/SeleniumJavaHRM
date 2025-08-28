@@ -15,9 +15,9 @@ public class UserManagementTest extends BaseTest {
 
     @BeforeMethod
     public void initPage() {
-        loginPage = new LoginPage(driver);
-        basePage = new BasePage(driver);
-        userMangementPage = new UserMangementPage(driver);
+        loginPage = new LoginPage();
+        basePage = new BasePage();
+        userMangementPage = new UserMangementPage();
     }
     @Test(priority = 1)
     public void testAddNewUser(){

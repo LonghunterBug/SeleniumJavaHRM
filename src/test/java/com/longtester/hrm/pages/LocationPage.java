@@ -10,7 +10,6 @@ import org.testng.Assert;
 import java.util.List;
 
 public class LocationPage {
-    private WebDriver driver;
     private By topbarOrganization = By.xpath("//span[contains(@class,'topbar') and normalize-space()='Organization']");
     private By menuitemLocations = By.xpath("//a[contains(@class,'tab-link') and normalize-space()='Locations']");
     private By inputSearchLocation = By.xpath("//label[text()='Name']/parent::div/following-sibling::div/input");
@@ -28,10 +27,7 @@ public class LocationPage {
     private By optionCountry2 = By.xpath("//div[@role='option']/span[text()='" + DataTest.country_edit + "']");
     private By buttonSave = By.xpath("//button[normalize-space()='Save']");
     private By toastMessageSuccess = By.xpath("//div[contains(@class,'toast--success')]");
-    public LocationPage(WebDriver driver) {
-        this.driver = driver;
-        new WebUI(driver);
-    }
+
     public void clickMenuLocation() {
         WebUI.clickElement(topbarOrganization);
         WebUI.clickElement(menuitemLocations);

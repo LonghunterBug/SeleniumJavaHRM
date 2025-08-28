@@ -9,17 +9,14 @@ import org.testng.Assert;
 import java.util.List;
 
 public class BasePage {
-    private WebDriver driver;
+
     private By menuAdmin  = By.xpath("//span[normalize-space()='Admin']");
     private By menuPIM = By.xpath("//span[normalize-space()='PIM']");
     private By iconAvatar = By.xpath("//span[contains(@class,'userdropdown')]");
     private By buttonLogout = By.xpath("//li/a[normalize-space()='Logout']");
     private By leftMainMenu = By.xpath("//ul[@class='oxd-main-menu']/li");
 
-    public BasePage(WebDriver driver){
-        this.driver = driver;
-        new WebUI(driver);
-    }
+
     public void clickMenuAdmin(){
         WebUI.clickElement(menuAdmin);
     }

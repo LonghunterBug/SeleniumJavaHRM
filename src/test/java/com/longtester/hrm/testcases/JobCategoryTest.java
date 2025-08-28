@@ -15,9 +15,9 @@ public class JobCategoryTest extends BaseTest {
 
     @BeforeMethod
     public void initPage() {
-        loginPage = new LoginPage(driver);
-        basePage = new BasePage(driver);
-        jobCategoryPage = new JobCategoryPage(driver);
+        loginPage = new LoginPage();
+        basePage = new BasePage();
+        jobCategoryPage = new JobCategoryPage();
     }
     @Test(priority = 1)
     public void testAddJobCategory() {

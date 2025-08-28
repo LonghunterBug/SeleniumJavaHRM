@@ -25,6 +25,6 @@ public class DataTest {
     // Data for Employee Management
     public static String employee_firstname = "FPT";
     public static String employee_middlename = "Soft";
-    public static String employee_lastname = "Town";
-    public static String employee_id = "001";
+    public static String employee_lastname = "Town1";
+    public static String employee_id = "0011";
 }

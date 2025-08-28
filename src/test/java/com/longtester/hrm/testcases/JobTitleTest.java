@@ -17,9 +17,9 @@ public class JobTitleTest extends BaseTest {
     JobTitlePage jobTitlePage;
     @BeforeMethod
     public void initPage() {
-        loginPage = new LoginPage(driver);
-        basePage = new BasePage(driver);
-        jobTitlePage = new JobTitlePage(driver);
+        loginPage = new LoginPage();
+        basePage = new BasePage();
+        jobTitlePage = new JobTitlePage();
     }
     @Test(priority = 1)
     public void testAddJobTitle() {

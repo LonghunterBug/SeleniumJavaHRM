@@ -11,7 +11,7 @@ import org.testng.Assert;
 import java.util.List;
 
 public class UserMangementPage {
-    private WebDriver driver;
+
     private By buttonAddNewUser = By.xpath("//button[normalize-space()='Add']");
     private By inputSearchUserName = By.xpath("//label[text()='Username']/parent::div/following-sibling::div/input");
     private By buttonSearch = By.xpath("//button[normalize-space()='Search']");
@@ -30,10 +30,8 @@ public class UserMangementPage {
     private By toastMessageSuccess = By.xpath("//div[contains(@class,'toast--success')]");
 
 
-    public UserMangementPage(WebDriver driver) {
-        this.driver = driver;
-        new WebUI(driver);
-    }
+
+
 
     public void addNewUser(String role, String status, String employee_name, String username, String password, String confirmpassword) {
         WebUI.clickElement(buttonAddNewUser);

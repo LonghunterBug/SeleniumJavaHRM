@@ -69,6 +69,17 @@ public class WebUI {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", getWebElement(by));
     }
+    public static void scrollToElementAtTop(WebElement element) {
+        sleep(STEP_TIME);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+    public static void scrollToElementAtTop(List<WebElement> elements, int index) {
+        sleep(STEP_TIME);
+        WebElement element = elements.get(index);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
 
     public static void highlightElement(By by) {
         // Highlight the element using JavaScript
@@ -76,6 +87,20 @@ public class WebUI {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript(script, driver.findElement(by));
+    }
+    public static void highlightElement(WebElement element) {
+        // Highlight the element using JavaScript
+        String script = "arguments[0].style.border='3px solid red';";
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript(script, element);
+    }
+    public static void highlightElement(List<WebElement> elements, int index) {
+        // Highlight the element using JavaScript
+        String script = "arguments[0].style.border='3px solid red';";
+        WebElement element = elements.get(index);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript(script, element);
     }
 
     public static String getElementText(By by) {

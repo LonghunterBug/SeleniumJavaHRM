@@ -14,9 +14,9 @@ public class LocationTest extends BaseTest {
     LocationPage locationPage;
     @BeforeMethod
     public void initPage(){
-        loginPage = new LoginPage(driver);
-        basePage = new BasePage(driver);
-        locationPage = new LocationPage(driver);
+        loginPage = new LoginPage();
+        basePage = new BasePage();
+        locationPage = new LocationPage();
     }
     @Test(priority = 1)
     public void testAddLocation(){
