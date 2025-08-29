@@ -14,19 +14,15 @@ public class EmployeeDetailPage {
     private By selectJobTitle = By.xpath("//label[text()='Job Title']/parent::div/following-sibling::div//div[contains(@class,'select-text--active')]");
     private By listOption = By.xpath("//div[@role='option']/span");
     private By selectJobCategory = By.xpath("//label[text()='Job Category']/parent::div/following-sibling::div//div[contains(@class,'select-text--active')]");
-    private By toastMessageSuccess = By.xpath("//div[contains(@class,'toast--success')]");
+
 
     public void updatePersonalDetail(String driverLicense, String gender) {
         WebUI.sleep(2);
         WebUI.setText(inputDriverLicenseNumber, driverLicense);
-        WebUI.clickElement(By.xpath("//label[text()='" + gender + "']/span"));
+        WebUI.clickElement(By.xpath("//label[text()='" + gender + "']/input"));
         WebUI.clickElement(buttonSave);
     }
 
-    public void verifySuccessMessageIsDisplayed() {
-        WebUI.verifyDisplay(toastMessageSuccess, WebUI.isElementDisplayed(toastMessageSuccess), "Toast message not display");
-        WebUI.highlightElement(toastMessageSuccess);
-    }
 
     public void updateJob(String jobTitle, String jobCategory) {
         WebUI.clickElement(menuJob);

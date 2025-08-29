@@ -24,7 +24,7 @@ public class JobCategoryTest extends BaseTest {
         loginPage.loginHRM("Admin", "admin123");
         basePage.clickMenuAdmin();
         jobCategoryPage.addJobCategory(DataTest.job_category);
-        jobCategoryPage.verifySuccessMessageIsDisplayed();
+        basePage.verifySuccessMessageIsDisplayed();
         jobCategoryPage.verifyJobCategoryIsDisplayedInTable(DataTest.job_category);
     }
     @Test(priority = 2)
@@ -32,7 +32,7 @@ public class JobCategoryTest extends BaseTest {
         loginPage.loginHRM("Admin", "admin123");
         basePage.clickMenuAdmin();
         jobCategoryPage.editJobCategory(DataTest.job_category);
-        jobCategoryPage.verifySuccessMessageIsDisplayed();
+        basePage.verifySuccessMessageIsDisplayed();
         jobCategoryPage.verifyJobCategoryIsDisplayedInTable(DataTest.job_category_edit);
     }
     @Test(priority = 3)
@@ -40,7 +40,7 @@ public class JobCategoryTest extends BaseTest {
         loginPage.loginHRM("Admin", "admin123");
         basePage.clickMenuAdmin();
         jobCategoryPage.deleteJobCategory(DataTest.job_category_edit);
-        jobCategoryPage.verifySuccessMessageIsDisplayed();
+        basePage.verifySuccessMessageIsDisplayed();
         jobCategoryPage.verifyJobCategoryNotDisplayedInTable(DataTest.job_category_edit);
     }
 }

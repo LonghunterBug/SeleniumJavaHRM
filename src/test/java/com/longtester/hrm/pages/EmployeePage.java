@@ -14,7 +14,7 @@ public class EmployeePage {
     private By inputLastName = By.xpath("//input[@placeholder='Last Name']");
     private By inputID = By.xpath("//label[text()='Employee Id']/parent::div/following-sibling::div/input");
     private By buttonSave = By.xpath("//button[normalize-space()='Save']");
-    private By toastMessageSuccess = By.xpath("//div[contains(@class,'toast--success')]");
+
 
 
     public void addNewEmployee(String firstname,String middlename,String lastname,String id){
@@ -26,10 +26,7 @@ public class EmployeePage {
         WebUI.setText(inputID,id);
         WebUI.clickElement(buttonSave);
     }
-    public void verifySuccessMessageIsDisplayed() {
-        WebUI.verifyDisplay(toastMessageSuccess,WebUI.isElementDisplayed(toastMessageSuccess),"Toast message not display");
-        WebUI.highlightElement(toastMessageSuccess);
-    }
+
     public void searchByID(String id) {
         WebUI.setText(inputSearchID, id);
         WebUI.clickElement(buttonSearch);

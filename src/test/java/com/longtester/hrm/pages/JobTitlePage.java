@@ -23,7 +23,7 @@ public class JobTitlePage {
     // Add New Job Title form
     private By inputJobTitle = By.xpath("//label[text()='Job Title']/parent::div/following-sibling::div/input");
     private By buttonSave = By.xpath("//button[normalize-space()='Save']");
-    private By toastMessageSuccess = By.xpath("//div[contains(@class,'toast--success')]");
+
 
     public void clickMenuJobTitle() {
         WebUI.clickElement(topbarJob);
@@ -90,10 +90,6 @@ public class JobTitlePage {
         WebUI.clickElement(buttonConfirmDelete);
     }
 
-    public void verifySuccessMessageIsDisplayed() {
-        WebUI.verifyDisplay(toastMessageSuccess,WebUI.isElementDisplayed(toastMessageSuccess),"Toast message not display");
-        WebUI.highlightElement(toastMessageSuccess);
-    }
 
     public void verifyJobTitleIsDisplayedInTable(String title) {
         WebUI.sleep(5);

@@ -26,7 +26,7 @@ public class JobTitleTest extends BaseTest {
         loginPage.loginHRM("Admin", "admin123");
         basePage.clickMenuAdmin();
         jobTitlePage.addJobTitle(DataTest.job_title);
-        jobTitlePage.verifySuccessMessageIsDisplayed();
+        basePage.verifySuccessMessageIsDisplayed();
         jobTitlePage.verifyJobTitleIsDisplayedInTable(DataTest.job_title);
     }
     @Test(priority = 2)
@@ -34,7 +34,7 @@ public class JobTitleTest extends BaseTest {
         loginPage.loginHRM("Admin", "admin123");
         basePage.clickMenuAdmin();
         jobTitlePage.editJobTitle(DataTest.job_title);
-        jobTitlePage.verifySuccessMessageIsDisplayed();
+        basePage.verifySuccessMessageIsDisplayed();
         jobTitlePage.verifyJobTitleIsDisplayedInTable(DataTest.job_title_edit);
 
     }
@@ -43,7 +43,7 @@ public class JobTitleTest extends BaseTest {
         loginPage.loginHRM("Admin","admin123");
         basePage.clickMenuAdmin();
         jobTitlePage.deleteJobTitle(DataTest.job_title_edit);
-        jobTitlePage.verifySuccessMessageIsDisplayed();
+        basePage.verifySuccessMessageIsDisplayed();
         jobTitlePage.verifyJobTitleNotDisplayedInTable(DataTest.job_title_edit);
 
     }

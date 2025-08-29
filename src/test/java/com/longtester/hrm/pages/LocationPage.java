@@ -26,7 +26,7 @@ public class LocationPage {
     private By optionCountry1 = By.xpath("//div[@role='option']/span[text()='" + DataTest.country + "']");
     private By optionCountry2 = By.xpath("//div[@role='option']/span[text()='" + DataTest.country_edit + "']");
     private By buttonSave = By.xpath("//button[normalize-space()='Save']");
-    private By toastMessageSuccess = By.xpath("//div[contains(@class,'toast--success')]");
+
 
     public void clickMenuLocation() {
         WebUI.clickElement(topbarOrganization);
@@ -64,10 +64,7 @@ public class LocationPage {
         WebUI.clickElement(buttonConfirmDelete);
     }
 
-    public void verifySuccessMessageIsDisplayed() {
-        WebUI.verifyDisplay(toastMessageSuccess,WebUI.isElementDisplayed(toastMessageSuccess),"Toast message not display");
-        WebUI.highlightElement(toastMessageSuccess);
-    }
+
     public void verifyLocationIsDisplayedInTable(String locationName) {
         WebUI.sleep(5);
         WebUI.setText(inputSearchLocation, locationName);

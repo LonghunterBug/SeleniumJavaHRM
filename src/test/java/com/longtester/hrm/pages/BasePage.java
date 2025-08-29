@@ -15,7 +15,7 @@ public class BasePage {
     private By iconAvatar = By.xpath("//span[contains(@class,'userdropdown')]");
     private By buttonLogout = By.xpath("//li/a[normalize-space()='Logout']");
     private By leftMainMenu = By.xpath("//ul[@class='oxd-main-menu']/li");
-
+    private By toastMessageSuccess = By.xpath("//div[contains(@class,'toast--success')]");
 
     public void clickMenuAdmin(){
         WebUI.clickElement(menuAdmin);
@@ -33,6 +33,10 @@ public class BasePage {
         for(WebElement e:listmenu){
             WebUI.verifyDisplay(e,e.isDisplayed(),e.getText() + " not display");
         }
+    }
+    public void verifySuccessMessageIsDisplayed() {
+        WebUI.verifyDisplay(toastMessageSuccess, WebUI.isElementDisplayed(toastMessageSuccess), "Toast message not display");
+        WebUI.highlightElement(toastMessageSuccess);
     }
 
 }

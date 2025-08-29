@@ -1,0 +1,11 @@
+Ở mô hình Page Object Model, trước khi có class WebUI để viết lại hàm xử lí chung thì việc  khai báo driver và truyền driver ở mỗi
+page là bắt buộc. Nếu không truyền thì khi chạy sẽ báo lỗi driver is NULL
+
+Cách truyền: viết hàm xây dựng và truyền driver từ bên ngoài (cụ thể driver được truyền từ BaseTest)
+vd: public LoginPage(Webdriver driver){
+this.driver = driver;// this.driver là driver từ việc khai báo biến driver toàn cục ở page
+}
+
+Khi viết lại hàm xử lí chung thì driver được tập trung tại class WebUI bởi vì WebUI chứa các hàm thao tác auto của Selenium (vd: click,sendKeys,..)
+==> Cho nên việc để lại hàm xây dựng là thừa vì Page Object không còn dùng driver trực tiếp nữa.
+Cách xử lí: Bỏ khai báo biến driver toàn cục ở page, bỏ hàm xây dựng và WebUI chỉ khởi tạo 1 lần ở BaseTest

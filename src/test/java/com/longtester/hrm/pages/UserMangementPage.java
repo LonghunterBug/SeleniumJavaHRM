@@ -27,7 +27,7 @@ public class UserMangementPage {
     private By inputPassword = By.xpath("//label[text()='Password']/parent::div/following-sibling::div/input");
     private By inputConfirmPassword = By.xpath("//label[text()='Confirm Password']/parent::div/following-sibling::div/input");
     private By buttonSave = By.xpath("//button[normalize-space()='Save']");
-    private By toastMessageSuccess = By.xpath("//div[contains(@class,'toast--success')]");
+
 
 
 
@@ -62,10 +62,7 @@ public class UserMangementPage {
         WebUI.clickElement(buttonConfirmDelete);
     }
 
-    public void verifySuccessMessageIsDisplayed() {
-        WebUI.verifyDisplay(toastMessageSuccess,WebUI.isElementDisplayed(toastMessageSuccess),"Toast message not display");
-        WebUI.highlightElement(toastMessageSuccess);
-    }
+
 
     public void verifyUserIsDisplayedInTable(String username) {
         WebUI.sleep(5);

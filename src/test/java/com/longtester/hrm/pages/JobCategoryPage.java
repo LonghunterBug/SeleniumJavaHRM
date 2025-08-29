@@ -22,7 +22,7 @@ public class JobCategoryPage {
     // Add New Job Title form
     private By inputJobCategory = By.xpath("//label[text()='Name']/parent::div/following-sibling::div/input");
     private By buttonSave = By.xpath("//button[normalize-space()='Save']");
-    private By toastMessageSuccess = By.xpath("//div[contains(@class,'toast--success')]");
+
 
     public void clickMenuJobCategory() {
         WebUI.clickElement(topbarJob);
@@ -84,10 +84,7 @@ public class JobCategoryPage {
         listButtonDelete.get(index).click();
         WebUI.clickElement(buttonConfirmDelete);
     }
-    public void verifySuccessMessageIsDisplayed() {
-        WebUI.verifyDisplay(toastMessageSuccess,WebUI.isElementDisplayed(toastMessageSuccess),"Toast message not display");
-        WebUI.highlightElement(toastMessageSuccess);
-    }
+
     public void verifyJobCategoryIsDisplayedInTable(String category) {
         WebUI.sleep(5);
         boolean check = false;

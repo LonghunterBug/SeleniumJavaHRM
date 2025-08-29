@@ -26,7 +26,7 @@ public class EmployeeTest extends BaseTest {
         loginPage.loginHRM(DataTest.username_login,DataTest.password_login);
         basePage.clickMenuPIM();
         employeePage.addNewEmployee(DataTest.employee_firstname,DataTest.employee_middlename,DataTest.employee_lastname,DataTest.employee_id);
-        employeePage.verifySuccessMessageIsDisplayed();
+        basePage.verifySuccessMessageIsDisplayed();
         basePage.clickMenuPIM();
         employeePage.verifyEmployeeIsDisplayedInTable(DataTest.employee_id);
     }
