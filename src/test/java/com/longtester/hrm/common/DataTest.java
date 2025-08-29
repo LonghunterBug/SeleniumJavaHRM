@@ -27,4 +27,7 @@ public class DataTest {
     public static String employee_middlename = "Soft";
     public static String employee_lastname = "Town1";
     public static String employee_id = "0011";
+    public static String driverNumber = "12345";
+    public static String gender = "Male";
+
 }
