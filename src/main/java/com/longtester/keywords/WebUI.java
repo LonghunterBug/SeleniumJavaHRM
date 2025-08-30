@@ -69,11 +69,13 @@ public class WebUI {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", getWebElement(by));
     }
+
     public static void scrollToElementAtTop(WebElement element) {
         sleep(STEP_TIME);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
+
     public static void scrollToElementAtTop(List<WebElement> elements, int index) {
         sleep(STEP_TIME);
         WebElement element = elements.get(index);
@@ -88,6 +90,7 @@ public class WebUI {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript(script, driver.findElement(by));
     }
+
     public static void highlightElement(WebElement element) {
         // Highlight the element using JavaScript
         String script = "arguments[0].style.border='3px solid red';";
@@ -95,6 +98,7 @@ public class WebUI {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript(script, element);
     }
+
     public static void highlightElement(List<WebElement> elements, int index) {
         // Highlight the element using JavaScript
         String script = "arguments[0].style.border='3px solid red';";
@@ -143,7 +147,6 @@ public class WebUI {
 
     public static boolean isElementSelected(By by) {
         try {
-            waitForElementClickable(by);
             WebElement element = getWebElement(by);
             return element.isSelected();
         } catch (Exception e) {
@@ -220,8 +223,14 @@ public class WebUI {
         }
     }
 
+    public static void verifySelect(By by, boolean check, String message) {
+        String text = getWebElement(by).getText();
+        logConsole("Verify " + text + " is checked");
+        Assert.assertTrue(check, message);
+    }
+
     public static void verifyEqual(Object actual, Object expected, String message) {
-        logConsole("Verify equal:" + actual + " and " + expected);
+        logConsole("Verify equal: " + actual + " and " + expected);
         Assert.assertEquals(actual, expected, message);
     }
 
@@ -236,6 +245,7 @@ public class WebUI {
         logConsole("Verify " + text + " is displayed");
         Assert.assertTrue(check, message);
     }
+
     // Trường hợp page có inputSearch, dùng hàm này
     public static void verifyNotDisplay1(List<WebElement> element, Object expected, String message) {
         logConsole("Verify " + expected + " is not displayed");
@@ -245,9 +255,10 @@ public class WebUI {
     // Trường hợp page không có inputSearch, phải dùng hàm này
     public static void verifyNotDisplay2(List<WebElement> element, Object expected, String message) {
         logConsole("Verify " + expected + " is not displayed");
-        for(WebElement e:element){
+        for (WebElement e : element) {
             Assert.assertTrue(!e.getText().equals(expected));
         }
     }
+
 
 }

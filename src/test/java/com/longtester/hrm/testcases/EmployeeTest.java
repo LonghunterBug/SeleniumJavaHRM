@@ -35,7 +35,14 @@ public class EmployeeTest extends BaseTest {
         loginPage.loginHRM(DataTest.username_login,DataTest.password_login);
         basePage.clickMenuPIM();
         employeePage.addNewEmployee(DataTest.employee_firstname,DataTest.employee_middlename,DataTest.employee_lastname,DataTest.employee_id);
+        basePage.clickMenuPIM();
+        employeePage.verifyEmployeeIsDisplayedInTable(DataTest.employee_id);
+        employeePage.clickEdit();
         employeeDetailPage.updatePersonalDetail(DataTest.driverNumber,DataTest.gender);
         employeeDetailPage.updateJob(DataTest.job_title,DataTest.job_category);
+        employeeDetailPage.clickMenuPersonalDetail();
+        employeeDetailPage.verifyPersonalDetailUpdated(DataTest.driverNumber,DataTest.gender);
+        employeeDetailPage.clickMenuJob();
+        employeeDetailPage.verifyJobUpdated(DataTest.job_title,DataTest.job_category);
     }
 }
