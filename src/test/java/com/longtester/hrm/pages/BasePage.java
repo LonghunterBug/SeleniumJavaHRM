@@ -9,7 +9,6 @@ import org.testng.Assert;
 import java.util.List;
 
 public class BasePage {
-
     private By menuAdmin  = By.xpath("//span[normalize-space()='Admin']");
     private By menuPIM = By.xpath("//span[normalize-space()='PIM']");
     private By iconAvatar = By.xpath("//span[contains(@class,'userdropdown')]");
